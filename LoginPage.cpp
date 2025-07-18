@@ -1,20 +1,87 @@
-// LoginPage.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-
 #include <iostream>
+#include <fstream>
+#include <string>
+#include <cstdlib>
 
-int main()
-{
-    std::cout << "Hello World!\n";
+using namespace std;
+
+void login();
+
+void registration();
+
+void forgot() {
+	return;
+};
+
+int main() {
+	int c;
+
+	cout << "\t\t\t_________________________________________________________\n\n";
+	cout << "\t\t\t                  Welcome to the Login Page    \n\n";
+	cout << "\t\t\t_______________            MENU           ________________\n\n";
+	cout << "													\n\n";
+	cout << "\t| Press 1 to LOGIN                                  |" << endl;
+	cout << "\t| Press 2 to REGISTER                               |" << endl;
+	cout << "\t| Press 3 if you forgot your PASSWORD               |" << endl;
+	cout << "\t| Press 4 to EXIT                                   |" << endl;
+
+	cin >> c;
+
+	cout << endl;
+
+	switch (c) {
+	case 1:
+		login();
+		break;
+	case 2:
+		registration();
+		break;
+	case 3:
+		forgot();
+		break;
+	case 4:
+		cout << "\t\t\t Thank you! " << endl;
+		break;
+	default:
+		system("cls");
+		cout << "\t\t\t Please select number from 1 to 4" << endl;
+		main();
+	}
 }
 
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
+void login() {
+	int count = 0;
+	string userId, pswd, id, userPswd;
+	system("cls");
+	cout << "\t\t\t Please enter the username and password : " << endl;
+	cout << "\t\t\t USERNAME ";
+	cin >> userId;
+	cout << "\t\t\t PASSWORD ";
+	cin >> userPswd;
 
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
+	ifstream input("data.txt");
+
+	while (input >> id >> pswd) {
+		if (userId == id && pswd == userPswd) {
+			count = 1;
+			system("cls");
+		}
+	}
+
+	if (count == 1) {
+		cout << userId << "\n Your LOGIN is successful \n";
+		main();
+	}
+	else {
+		cout << "\n LOGIN ERROR \n Please check your username and password\n";
+		main();
+	}
+};
+
+void registration() {
+	string ruserId, rpassword, rid, rpass;
+	system("cls");
+
+	ifstream input("data.txt");
+
+}
