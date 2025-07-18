@@ -79,9 +79,37 @@ void login() {
 };
 
 void registration() {
-	string ruserId, rpassword, rid, rpass;
+	int flag = 0;
+	string ruserId, ruserPswd, rid, rpswd;
 	system("cls");
+
+	cout << "\t\t\t Please enter your LOGIN : \n USERNAME " << endl;
+	cin >> ruserId;
 
 	ifstream input("data.txt");
 
+	while (input >> rid >> rpswd) {
+		if (ruserId == rid) {
+			cout << "ERROR : USERNAME is already exist \n Create a new one" << endl;
+			flag = 1;
+			main();
+		}
+	}
+
+	if (flag != 1) {
+		input.close();
+
+		cout << "\t\t\t Please enter your PASSWORD : \n PASSWORD " << endl;
+		cin >> ruserPswd;
+
+		ofstream output("data.txt", ios::app);
+
+		output << ruserId << ' ' << ruserPswd << endl;
+
+		system("cls");
+
+		cout << "Registration is completed!" << endl;
+
+		output.close();
+	}
 }
