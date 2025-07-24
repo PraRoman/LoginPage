@@ -9,9 +9,7 @@ void login();
 
 void registration();
 
-void forgot() {
-	return;
-};
+void forgot();
 
 int main() {
 	int c;
@@ -111,5 +109,51 @@ void registration() {
 		cout << "Registration is completed!" << endl;
 
 		output.close();
+	}
+}
+
+void forgot() {
+	int option;
+	int count = 0;
+	string userId, id, pswd, userPswd;
+
+	system("cls");
+	cout << "\t\t\tYou forgot the password?\t\t\t" << endl;
+	cout << "\tPress 1 to search your password by username\t" << endl;
+	cout << "\tPress 2 to exit in a main menu\t" << endl;
+	cout << "\tEnter your choice\t" << endl;
+	cin >> option;
+
+	ifstream output("data.txt");
+
+	switch (option) {
+	case 1 :
+
+			//ifstream output("data.txt");
+			while (output >> id >> pswd) {
+				if (userId == id) {
+					count = 1;
+					userPswd = pswd;
+				}
+			}
+			output.close();
+
+			if (count == 1) {
+				cout << "\n\t Your account is found! \t" << endl;
+				cout << "\n\t Here is your password \t" << endl;
+				main();
+			}
+			else {
+				cout << "\n\t Your account is not found!" << endl;
+				main();
+			}
+			break;
+	case 2 : 
+		output.close();
+		main();
+
+	default: 
+		output.close();
+		main();
 	}
 }
