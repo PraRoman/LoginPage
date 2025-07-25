@@ -128,29 +128,27 @@ void forgot() {
 
 	switch (option) {
 	case 1 :
+		cout << "\n\t Enter username : ";
+		cin >> userId;
 
-			//ifstream output("data.txt");
-			while (output >> id >> pswd) {
-				if (userId == id) {
-					count = 1;
-					userPswd = pswd;
-				}
+		while (output >> id >> pswd) {
+			if (userId == id) {
+				count = 1;
 			}
-			output.close();
-
-			if (count == 1) {
-				cout << "\n\t Your account is found! \t" << endl;
-				cout << "\n\t Here is your password \t" << endl;
-				main();
-			}
-			else {
-				cout << "\n\t Your account is not found!" << endl;
-				main();
-			}
-			break;
+		}
+		output.close();
+		if (count == 1) {
+			cout << "\n\t Your account is found! \t" << endl;
+			cout << "\n\t Here is your password : \t" << pswd << endl;
+			main();
+		}
+		else {
+			cout << "\n\t Your account is not found!" << endl;
+			main();
+		}
+		break;
 	case 2 : 
 		output.close();
-		main();
 
 	default: 
 		output.close();
