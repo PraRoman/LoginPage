@@ -20,7 +20,7 @@ void clearScreen() {
 }
 
 void waitForEnter() {
-	cout << "\n\tPress Enter to continue : " << endl;
+	cout << "\n\tPress Enter to continue... " << endl;
 	cin.ignore();
 	cin.get();
 }
