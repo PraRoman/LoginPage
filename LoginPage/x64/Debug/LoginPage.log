@@ -1,4 +1,4 @@
-﻿  LoginPage.cpp
+﻿  Auth.cpp
   LoginPage.vcxproj -> C:\LoginPage\x64\Debug\LoginPage.exe
   "pwsh.exe" не является внутренней или внешней
   командой, исполняемой программой или пакетным файлом.
