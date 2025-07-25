@@ -3,8 +3,12 @@
   "WorkspaceRootPath": "C:\\LoginPage\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{D052021E-571A-492A-9DD3-C5D4663A4930}|LoginPage.vcxproj|C:\\LoginPage\\LoginPage.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{D052021E-571A-492A-9DD3-C5D4663A4930}|LoginPage.vcxproj|solutionrelative:LoginPage.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{D052021E-571A-492A-9DD3-C5D4663A4930}|LoginPage.vcxproj|C:\\LoginPage\\src\\Auth.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{D052021E-571A-492A-9DD3-C5D4663A4930}|LoginPage.vcxproj|solutionrelative:src\\Auth.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D052021E-571A-492A-9DD3-C5D4663A4930}|LoginPage.vcxproj|C:\\LoginPage\\src\\LoginPage.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{D052021E-571A-492A-9DD3-C5D4663A4930}|LoginPage.vcxproj|solutionrelative:src\\LoginPage.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,15 +26,34 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "LoginPage.cpp",
-              "DocumentMoniker": "C:\\LoginPage\\LoginPage.cpp",
-              "RelativeDocumentMoniker": "LoginPage.cpp",
-              "ToolTip": "C:\\LoginPage\\LoginPage.cpp",
-              "RelativeToolTip": "LoginPage.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAQAAAAAAAAAA==",
+              "DocumentMoniker": "C:\\LoginPage\\src\\LoginPage.cpp",
+              "RelativeDocumentMoniker": "src\\LoginPage.cpp",
+              "ToolTip": "C:\\LoginPage\\src\\LoginPage.cpp",
+              "RelativeToolTip": "src\\LoginPage.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-07-18T09:21:46.179Z",
+              "WhenOpened": "2025-07-25T13:16:37.775Z",
+              "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Auth.cpp",
+              "DocumentMoniker": "C:\\LoginPage\\src\\Auth.cpp",
+              "RelativeDocumentMoniker": "src\\Auth.cpp",
+              "ToolTip": "C:\\LoginPage\\src\\Auth.cpp",
+              "RelativeToolTip": "src\\Auth.cpp",
+              "ViewState": "AgIAAFYAAAAAAAAAAAAAAG0AAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-07-25T13:17:21.183Z",
               "EditorCaption": ""
             }
           ]

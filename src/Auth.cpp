@@ -86,13 +86,13 @@ void forgot() {
 	cout << "\tEnter your choice : \t" << endl;
 	cin >> option;
 
-	ifstream output("data.txt");
+	
 
 	switch (option) {
-	case 1:
+	case 1: {
 		cout << "\n\t Enter username : ";
 		cin >> userId;
-
+		ifstream output("data.txt");
 		while (output >> id >> pswd) {
 			if (userId == id) {
 				count = 1;
@@ -107,11 +107,13 @@ void forgot() {
 		else {
 			cout << "\n\t Your account is not found!" << endl;
 		}
+		waitForEnter();
 		break;
+	}
 	case 2:
-		output.close();
+		break;
 
 	default:
-		output.close();
+		cout << "\n\tWrong choice\n\n\tPlease, choose 1 or 2" << endl;
 	}
 }
