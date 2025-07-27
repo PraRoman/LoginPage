@@ -77,6 +77,11 @@ void registration() {
 
 		ofstream output("data.txt", ios::app);
 
+		if (!output.is_open()) {
+			cerr << "Could not open data.txt for reading.\n";
+			return;
+		}
+
 		output << ruserId << ' ' << ruserPswd << endl;
 
 		output.close();
@@ -108,6 +113,12 @@ void forgot() {
 		cout << "\n\t Enter username : ";
 		cin >> userId;
 		ifstream output("data.txt");
+
+		if (!output.is_open()) {
+			cerr << "Could not open data.txt for reading.\n";
+			return;
+		}
+
 		while (output >> id >> pswd) {
 			if (userId == id) {
 				count = 1;
