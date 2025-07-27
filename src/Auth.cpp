@@ -11,7 +11,7 @@ using namespace std;
 void login() {
 	int count = 0;
 	string userId, pswd, id, userPswd;
-	system("cls");
+	clearScreen();
 	cout << "\t\t\t Please enter the username and password : " << endl;
 	cout << "\t\t\t USERNAME ";
 	cin >> userId;
@@ -20,12 +20,19 @@ void login() {
 
 	ifstream input("data.txt");
 
+	if (!input.is_open()) {
+		cerr << "Failed to open file for reading.\n";
+		return;
+	}
+
 	while (input >> id >> pswd) {
 		if (userId == id && pswd == userPswd) {
 			count = 1;
 
 		}
 	}
+
+	input.close();
 
 	if (count == 1) {
 		cout << userId << "\n Your LOGIN is successful \n";
@@ -47,15 +54,23 @@ void registration() {
 
 	ifstream input("data.txt");
 
+	if (!input.is_open()) {
+		cerr << "Failed to open file for reading.\n";
+		return;
+	}
+
 	while (input >> rid >> rpswd) {
 		if (ruserId == rid) {
 			cout << "ERROR : USERNAME is already exist \n Create a new one" << endl;
 			flag = 1;
+			break;
 		}
 	}
 
+	input.close();
+
 	if (flag != 1) {
-		input.close();
+		
 
 		cout << "\t\t\t Please enter your PASSWORD : \n PASSWORD " << endl;
 		cin >> ruserPswd;
@@ -64,11 +79,11 @@ void registration() {
 
 		output << ruserId << ' ' << ruserPswd << endl;
 
-		system("cls");
-
-		cout << "Registration is completed!" << endl;
-
 		output.close();
+
+		clearScreen();
+
+		cout << "Registration is completed!" << endl;		
 	}
 
 	waitForEnter();
