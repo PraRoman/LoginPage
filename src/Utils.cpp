@@ -1,5 +1,9 @@
 #include "Utils.h"
 #include <iostream>
+#include <openssl/sha.h>
+#include <sstream>
+#include <iomanip>
+#include <string>
 
 using namespace std;
 
@@ -23,4 +27,15 @@ void waitForEnter() {
 	cout << "\n\tPress Enter to continue... " << endl;
 	cin.ignore();
 	cin.get();
+}
+
+std::string hashPswd(const std::string& pswd) {
+	unsigned char hash[SHA256_DIGEST_LENGTH];
+	SHA256((const unsigned char*)pswd.c_str(), pswd.size(), hash);
+
+	std::stringstream ss;
+	for (int i = 0; i < SHA256_DIGEST_LENGTH; ++i)
+		ss << std::hex << std::setw(2) << std::setfill('0') << (int)hash[i];
+
+	return ss.str();
 }

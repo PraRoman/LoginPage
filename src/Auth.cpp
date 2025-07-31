@@ -26,9 +26,9 @@ void login() {
 	}
 
 	while (input >> id >> pswd) {
-		if (userId == id && pswd == userPswd) {
+		string hashedInput = hashPswd(userPswd);
+		if (userId == id && pswd == hashedInput) {
 			count = 1;
-
 		}
 	}
 
@@ -47,7 +47,7 @@ void login() {
 void registration() {
 	clearScreen();
 	int flag = 0;
-	string ruserId, ruserPswd, rid, rpswd;
+	string ruserId, ruserPswd, rid, rpswd, hashedPswd;
 
 	cout << "\t\t\t Please enter your LOGIN : \n USERNAME " << endl;
 	cin >> ruserId;
@@ -82,7 +82,9 @@ void registration() {
 			return;
 		}
 
-		output << ruserId << ' ' << ruserPswd << endl;
+		hashedPswd = hashPswd(ruserPswd);
+
+		output << ruserId << ' ' << hashedPswd << endl;
 
 		output.close();
 

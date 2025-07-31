@@ -1,34 +1,36 @@
-cmake_minimum_required(VERSION 3.16)
+cmake_minimum_required(VERSION 3.14)
 project(LoginPage)
 
-set(CMAKE_CXX_STANDARD 17)
-
-# Указать исходники
-include_directories(includes)
-
-add_executable(LoginPage
-    src/LoginPage.cpp
-    src/Auth.cpp
-    src/Utils.cpp
-)
-
-# ===== Google Test =====
+# Включаем FetchContent
 include(FetchContent)
 
+# Скачиваем Google Test
 FetchContent_Declare(
-    googletest
-    URL https://github.com/google/googletest/archive/refs/heads/main.zip
+  googletest
+  URL https://github.com/google/googletest/archive/refs/heads/main.zip
 )
-
 FetchContent_MakeAvailable(googletest)
 
+# Включаем поддержку тестов
 enable_testing()
 
-add_executable(LoginTests
-    tests/test_login.cpp
+# Указываем исходники приложения
+add_executable(LoginPage
+  src/LoginPage.cpp
+  src/Auth.cpp
+  src/Utils.cpp
 )
 
-target_link_libraries(LoginTests gtest_main)
+# Указываем исходники тестов
+add_executable(LoginTests
+  tests/LoginTests.cpp
+)
 
+# Линкуем GoogleTest
+target_link_libraries(LoginTests
+  gtest_main
+)
+
+# Указываем CMake запускать тесты
 include(GoogleTest)
 gtest_discover_tests(LoginTests)
