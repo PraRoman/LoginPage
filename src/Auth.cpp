@@ -11,7 +11,7 @@ using namespace std;
 void login() {
 	int count = 0;
 	string userId, pswd, id, userPswd;
-	system("cls");
+	clearScreen();
 	cout << "\t\t\t Please enter the username and password : " << endl;
 	cout << "\t\t\t USERNAME ";
 	cin >> userId;
@@ -20,12 +20,20 @@ void login() {
 
 	ifstream input("data.txt");
 
-	while (input >> id >> pswd) {
-		if (userId == id && pswd == userPswd) {
-			count = 1;
+	if (!input.is_open()) {
+		cerr << "Failed to open file for reading.\n";
+		waitForEnter();
+		return;
+	}
 
+	while (input >> id >> pswd) {
+		string hashedInput = hashPswd(userPswd);
+		if (userId == id && pswd == hashedInput) {
+			count = 1;
 		}
 	}
+
+	input.close();
 
 	if (count == 1) {
 		cout << userId << "\n Your LOGIN is successful \n";
@@ -40,35 +48,52 @@ void login() {
 void registration() {
 	clearScreen();
 	int flag = 0;
-	string ruserId, ruserPswd, rid, rpswd;
+	string ruserId, ruserPswd, rid, rpswd, hashedPswd;
 
 	cout << "\t\t\t Please enter your LOGIN : \n USERNAME " << endl;
 	cin >> ruserId;
 
 	ifstream input("data.txt");
 
+	if (!input.is_open()) {
+		cerr << "Failed to open file for reading.\n";
+		waitForEnter();
+		return;
+	}
+
 	while (input >> rid >> rpswd) {
 		if (ruserId == rid) {
 			cout << "ERROR : USERNAME is already exist \n Create a new one" << endl;
 			flag = 1;
+			break;
 		}
 	}
 
+	input.close();
+
 	if (flag != 1) {
-		input.close();
+		
 
 		cout << "\t\t\t Please enter your PASSWORD : \n PASSWORD " << endl;
 		cin >> ruserPswd;
 
 		ofstream output("data.txt", ios::app);
 
-		output << ruserId << ' ' << ruserPswd << endl;
+		if (!output.is_open()) {
+			cerr << "Could not open data.txt for reading.\n";
+			waitForEnter();
+			return;
+		}
 
-		system("cls");
+		hashedPswd = hashPswd(ruserPswd);
 
-		cout << "Registration is completed!" << endl;
+		output << ruserId << ' ' << hashedPswd << endl;
 
 		output.close();
+
+		clearScreen();
+
+		cout << "Registration is completed!" << endl;		
 	}
 
 	waitForEnter();
@@ -93,6 +118,13 @@ void forgot() {
 		cout << "\n\t Enter username : ";
 		cin >> userId;
 		ifstream output("data.txt");
+
+		if (!output.is_open()) {
+			cerr << "Could not open data.txt for reading.\n";
+			waitForEnter();
+			return;
+		}
+
 		while (output >> id >> pswd) {
 			if (userId == id) {
 				count = 1;

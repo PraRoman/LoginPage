@@ -1,4 +1,12 @@
 ﻿  Auth.cpp
+C:\LoginPage\includes\Utils.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  (compiling source file 'src/Auth.cpp')
+  
+  Utils.cpp
+C:\LoginPage\includes\Utils.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  (compiling source file 'src/Utils.cpp')
+  
+  Generating Code...
   LoginPage.vcxproj -> C:\LoginPage\x64\Debug\LoginPage.exe
   "pwsh.exe" не является внутренней или внешней
   командой, исполняемой программой или пакетным файлом.
