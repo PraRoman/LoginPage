@@ -29,7 +29,7 @@ void waitForEnter() {
 	cin.get();
 }
 
-std::string hashPswd(const std::string& pswd) {
+string hashPswd(const string& pswd) {
 	unsigned char hash[SHA256_DIGEST_LENGTH];
 	SHA256((const unsigned char*)pswd.c_str(), pswd.size(), hash);
 

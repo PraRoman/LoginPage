@@ -22,6 +22,7 @@ void login() {
 
 	if (!input.is_open()) {
 		cerr << "Failed to open file for reading.\n";
+		waitForEnter();
 		return;
 	}
 
@@ -56,6 +57,7 @@ void registration() {
 
 	if (!input.is_open()) {
 		cerr << "Failed to open file for reading.\n";
+		waitForEnter();
 		return;
 	}
 
@@ -79,6 +81,7 @@ void registration() {
 
 		if (!output.is_open()) {
 			cerr << "Could not open data.txt for reading.\n";
+			waitForEnter();
 			return;
 		}
 
@@ -118,6 +121,7 @@ void forgot() {
 
 		if (!output.is_open()) {
 			cerr << "Could not open data.txt for reading.\n";
+			waitForEnter();
 			return;
 		}
 
