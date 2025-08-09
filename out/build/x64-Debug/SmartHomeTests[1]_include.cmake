@@ -1,5 +1,0 @@
-if(EXISTS "C:/LoginPage/out/build/x64-Debug/SmartHomeTests[1]_tests.cmake")
-  include("C:/LoginPage/out/build/x64-Debug/SmartHomeTests[1]_tests.cmake")
-else()
-  add_test(SmartHomeTests_NOT_BUILT SmartHomeTests_NOT_BUILT)
-endif()

@@ -3,4 +3,9 @@
 *.obj
 bin/
 obj/
-.vs
+
+packages/
+vcpkg_installed/
+
+out/
+LoginPage/x64/

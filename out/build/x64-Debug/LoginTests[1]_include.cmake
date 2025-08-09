@@ -1,5 +1,0 @@
-if(EXISTS "C:/LoginPage/out/build/x64-Debug/LoginTests[1]_tests.cmake")
-  include("C:/LoginPage/out/build/x64-Debug/LoginTests[1]_tests.cmake")
-else()
-  add_test(LoginTests_NOT_BUILT LoginTests_NOT_BUILT)
-endif()
