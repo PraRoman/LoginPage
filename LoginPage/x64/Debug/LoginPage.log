@@ -1,4 +1,21 @@
 ﻿  The vcpkg manifest was disabled, but we found a manifest file in C:\LoginPage\. You may want to enable vcpkg manifests in your properties page or pass /p:VcpkgEnableManifest=true to the msbuild invocation.
+  Auth.cpp
+C:\LoginPage\includes\Utils.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  (compiling source file 'src/Auth.cpp')
+  
+  LoginPage.cpp
+C:\LoginPage\includes\Utils.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  (compiling source file 'src/LoginPage.cpp')
+  
+  Utils.cpp
+C:\LoginPage\includes\Utils.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  (compiling source file 'src/Utils.cpp')
+  
+D:\VisualStudio\VC\Tools\MSVC\14.43.34808\include\ranges(11): warning STL4038: The contents of <ranges> are available only with C++20 or later.
+D:\VisualStudio\VC\Tools\MSVC\14.43.34808\include\span(12): warning STL4038: The contents of <span> are available only with C++20 or later.
+  tests_devices.cpp
+  tests_main.cpp
+  Generating Code...
   LoginPage.vcxproj -> C:\LoginPage\x64\Debug\LoginPage.exe
   "pwsh.exe" не является внутренней или внешней
   командой, исполняемой программой или пакетным файлом.
