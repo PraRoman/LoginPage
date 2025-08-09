@@ -1,5 +1,10 @@
 #include "Utils.h"
 #include <iostream>
+#include <openssl/sha.h>
+#include <sstream>
+#include <iomanip>
+#include <string>
+#include <pqxx/pqxx>
 
 using namespace std;
 
@@ -23,4 +28,31 @@ void waitForEnter() {
 	cout << "\n\tPress Enter to continue... " << endl;
 	cin.ignore();
 	cin.get();
+}
+
+string hashPswd(const string& pswd) {
+	unsigned char hash[SHA256_DIGEST_LENGTH];
+	SHA256((const unsigned char*)pswd.c_str(), pswd.size(), hash);
+
+	std::stringstream ss;
+	for (int i = 0; i < SHA256_DIGEST_LENGTH; ++i)
+		ss << std::hex << std::setw(2) << std::setfill('0') << (int)hash[i];
+
+	return ss.str();
+}
+
+int sqlConnect() {
+	try {
+		pqxx::connection conn("dbname=test user=postgres password=secret");
+		if (conn.is_open()) {
+			std::cout << "Connected to database successfully.\n";
+		}
+
+		// никаких conn.disconnect() не нужно
+	}
+	catch (const std::exception& e) {
+		std::cerr << e.what() << std::endl;
+	}
+
+	return 0;
 }

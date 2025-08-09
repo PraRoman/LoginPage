@@ -14,11 +14,17 @@ int main() {
 	int c;
 	bool flag = true;
 
-	while (flag == true) {
+	while (flag) {
 		clearScreen();
 		printMenu();
 
 		cin >> c;
+		if (cin.fail()) {
+			cin.clear(); // сбрасываем флаг ошибки
+			cin.ignore(10000, '\n'); // очищаем буфер
+			cout << "Invalid input. Try again." << endl;
+			continue; // пропускаем итерацию
+		}
 
 		switch (c) {
 		case 1:
@@ -37,8 +43,6 @@ int main() {
 		default:
 			clearScreen();
 			cout << "\t\t\t Please select number from 1 to 4" << endl;
-			main();
 		}
 	}
 }
-

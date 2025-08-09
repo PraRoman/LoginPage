@@ -62,7 +62,11 @@
               "RelativeDocumentMoniker": "src\\Utils.cpp",
               "ToolTip": "C:\\LoginPage\\src\\Utils.cpp",
               "RelativeToolTip": "src\\Utils.cpp",
+<<<<<<< HEAD
               "ViewState": "AgIAABsAAAAAAAAAAAAAACwAAAAGAAAAAAAAAA==",
+=======
+              "ViewState": "AgIAABgAAAAAAAAAAAAAACwAAAAGAAAAAAAAAA==",
+>>>>>>> 3217b40f16d65c94dc875ed1012c6dd0424e74d0
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-07-25T14:53:44.05Z",
               "EditorCaption": ""
