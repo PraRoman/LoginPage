@@ -43,12 +43,10 @@ string hashPswd(const string& pswd) {
 
 int sqlConnect() {
 	try {
-		pqxx::connection conn("dbname=test user=postgres password=secret");
+		pqxx::connection conn("dbname=loginpage user=postgres password=Mephi2022");
 		if (conn.is_open()) {
 			std::cout << "Connected to database successfully.\n";
 		}
-
-		// никаких conn.disconnect() не нужно
 	}
 	catch (const std::exception& e) {
 		std::cerr << e.what() << std::endl;

@@ -5,9 +5,15 @@
 #include "Auth.h"
 #include "Utils.h"
 
+#include <pqxx/pqxx>
+
 using namespace std;
 
 int main() {
+
+	sqlConnect();
+
+	waitForEnter();
 
 	printMenu();
 
@@ -20,10 +26,10 @@ int main() {
 
 		cin >> c;
 		if (cin.fail()) {
-			cin.clear(); // сбрасываем флаг ошибки
-			cin.ignore(10000, '\n'); // очищаем буфер
+			cin.clear();
+			cin.ignore(10000, '\n'); 
 			cout << "Invalid input. Try again." << endl;
-			continue; // пропускаем итерацию
+			continue; 
 		}
 
 		switch (c) {
