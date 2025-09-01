@@ -6,6 +6,9 @@
 #include <string>
 #include <pqxx/pqxx>
 
+#include <thread>
+#include <chrono>
+
 using namespace std;
 
 void printMenu() {
@@ -24,10 +27,17 @@ void clearScreen() {
     std::cout << "\033[2J\033[1;1H"; // ANSI escape codes
 }
 
+//void waitForEnter() {
+//	cout << "\n\tPress Enter to continue... " << endl;
+//	cin.ignore();
+//	cin.get();
+//}
+
 void waitForEnter() {
-	cout << "\n\tPress Enter to continue... " << endl;
-	cin.ignore();
-	cin.get();
+	std::cout << "\n\tNext page in 3 seconds..." << std::endl;
+
+	this_thread::sleep_for(chrono::milliseconds(3000));
+
 }
 
 string hashPswd(const string& pswd) {
